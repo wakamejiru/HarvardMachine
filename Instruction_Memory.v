@@ -14,7 +14,7 @@ module top();
 endmodule
 module MEM(CLK,W_time);
 	input CLK,W_time;
-	Instruction_MEM imem(PC,MEM,I);
+	Instruction_MEM imem(PC,CLK,I);
 	
 endmodule
 module Instruction_MEM
