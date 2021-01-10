@@ -15,6 +15,9 @@ endmodule
 module MEM(CLK,W_time);
 	input CLK,W_time;
 	Instruction_MEM imem(PC,CLK,I);
+	Data_MEM dmem(DW, OR,data, we,CLK,DR);
+	Accumulator_MEM amem(AW,we,CLK,AR);
+	Status_MEM smem(EFW,CFW,CLK,EFF,CFF);
 	
 endmodule
 module Instruction_MEM
