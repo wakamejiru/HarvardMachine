@@ -40,9 +40,9 @@ endmodule
 module Data_MEM
 //データメモリ書き込みあり
 (
-	input [15:0] DW,
+	input [7:0] DWA,
 	input [15:0] OR,
-	input [15:0]data,//dataは入力のデータそのもの
+	input [15:0]DW,//DWは入力のデータそのもの
 	input we,CLK,
 	//we:writeフラグ
 	output [15:0] DR//出力データ
@@ -59,11 +59,12 @@ module Data_MEM
 	begin
 	// 書き込み開始
 		if (we)
-			D_ram[DW] <= data;
+			D_ram[DWA] <= DW;
 		
-		 OR_reg<= DW;
+		 OR_reg<= DWA;
 		
 	end
+//orは上位または下位の8bit抽出
 	assign DR = D_ram[OR[15:0]];
 endmodule
 module Accumulator_MEM
