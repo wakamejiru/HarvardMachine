@@ -41,7 +41,6 @@ module Data_MEM
 //データメモリ書き込みあり
 (
 	input [7:0] DWA,
-	input [15:0] OR,
 	input [15:0]DW,//DWは入力のデータそのもの
 	input we,CLK,
 	//we:writeフラグ
